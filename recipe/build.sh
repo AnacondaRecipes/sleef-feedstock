@@ -30,9 +30,9 @@ mkdir build
 cd build
 
 if [[ "$target_platform" == "osx-arm64" ]]; then
-    # clang 11.0.0 segfaults. So use Apple's clang.
-    export CC=/usr/bin/clang
-    export CFLAGS="$CFLAGS -isysroot $CONDA_BUILD_SYSROOT -arch arm64"
+    # clang 11.0.0 segfaults. So same on Apple's clang 12.0.0 
+    # so disable for now crashing code ...
+    CMAKE_ARGS="${CMAE_ARGS} -DDISABLE_SVE:BOOL=ON"
 fi
 
 if [[ "$target_platform" == linux-* ]]; then
