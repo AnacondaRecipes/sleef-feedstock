@@ -20,8 +20,6 @@ build:
     # SO name changes at minor rev bumps.
     - {{ pin_subpackage('sleef', max_pin='x') }}
   skip: true  # [win and vc<14]
-  missing_dso_whitelist:
-    - '*/libomp.dylib'    # [osx]
 
 requirements:
   build:

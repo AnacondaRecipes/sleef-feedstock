@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+ls -la $PREFIX/lib
+ls -la $BUILD_REFIX/lib
+
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
   (
     mkdir -p native-build
