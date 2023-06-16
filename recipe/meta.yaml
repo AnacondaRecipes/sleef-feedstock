@@ -54,7 +54,7 @@ about:
     point math functions. It can utilize SIMD instructions that are available
     on modern processors.
   dev_url: https://github.com/shibatch/sleef
-  dev_doc: https://sleef.org/
+  doc_url: https://sleef.org/
 
 extra:
   recipe-maintainers:
