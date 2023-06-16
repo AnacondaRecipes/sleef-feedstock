@@ -46,7 +46,7 @@ about:
   home: https://sleef.org/
   license: BSL-1.0
   license_file: LICENSE.txt
-  license_family: BSL
+  license_family: BSL-1.0
   summary: SIMD library for evaluating elementary functions
   description: |
     SLEEF stands for SIMD Library for Evaluating Elementary Functions.
