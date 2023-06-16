@@ -33,7 +33,9 @@ requirements:
     - patch     # [not win]
     - m2-patch  # [win]
   host:
-    - openssl
+    - openssl {{ openssl }}
+  run:
+    - openssl 3.*
 
 test:
   commands:
