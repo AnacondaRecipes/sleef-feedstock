@@ -46,7 +46,15 @@ about:
   home: https://sleef.org/
   license: BSL-1.0
   license_file: LICENSE.txt
+  license_family: BSL
   summary: SIMD library for evaluating elementary functions
+  description: |
+    SLEEF stands for SIMD Library for Evaluating Elementary Functions.
+    It implements manually vectorized versions of all C99 real floating
+    point math functions. It can utilize SIMD instructions that are available
+    on modern processors.
+  dev_url: https://github.com/shibatch/sleef
+  dev_doc: https://sleef.org/
 
 extra:
   recipe-maintainers:
