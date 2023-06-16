@@ -22,6 +22,8 @@ build:
   skip: true  # [win and vc<14]
   ignore_run_exports_from:
     - openssl
+  missing_dso_whitelist:
+    - '*/libomp.dylib'    # [osx]
 
 requirements:
   build:
