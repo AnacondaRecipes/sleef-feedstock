@@ -26,10 +26,13 @@ requirements:
     - {{ compiler('c') }}
     - cmake
     - ninja        # [unix]
-    - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - patch     # [not win]
     - m2-patch  # [win]
+  host:
+    - llvm-openmp  # [osx]
+  run:
+    - llvm-openmp  # [osx]
 
 test:
   commands:
