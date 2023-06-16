@@ -30,8 +30,10 @@ requirements:
     - patch     # [not win]
     - m2-patch  # [win]
   host:
-    - llvm-openmp 14.0.6 # [osx]
+    - libgomp 11.2.0  # [linux]
+    - llvm-openmp 14.0.6  # [osx]
   run:
+    - libgomp  # [linux]
     - llvm-openmp  # [osx]
 
 test:
