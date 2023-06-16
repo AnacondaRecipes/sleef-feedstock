@@ -30,7 +30,7 @@ requirements:
     - patch     # [not win]
     - m2-patch  # [win]
   host:
-    - llvm-openmp  # [osx]
+    - llvm-openmp 14.0.6 # [osx]
   run:
     - llvm-openmp  # [osx]
 
