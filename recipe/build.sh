@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-echo "ls -la $PREFIX/lib"
-ls -la $PREFIX/lib
-echo "ls -la $BUILD_PREFIX/lib"
-ls -la $BUILD_PREFIX/lib
-
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
   (
     mkdir -p native-build
