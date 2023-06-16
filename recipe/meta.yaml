@@ -20,8 +20,6 @@ build:
     # SO name changes at minor rev bumps.
     - {{ pin_subpackage('sleef', max_pin='x') }}
   skip: true  # [win and vc<14]
-  ignore_run_exports_from:
-    - openssl
   missing_dso_whitelist:
     - '*/libomp.dylib'    # [osx]
 
@@ -34,10 +32,6 @@ requirements:
     - libgomp      # [linux]
     - patch     # [not win]
     - m2-patch  # [win]
-  host:
-    - openssl {{ openssl }}
-  run:
-    - openssl 3.*
 
 test:
   commands:
