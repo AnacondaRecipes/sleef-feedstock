@@ -20,6 +20,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
       -DCMAKE_INSTALL_PREFIX=$BUILD_PREFIX \
       -DCMAKE_PREFIX_PATH=$BUILD_PREFIX \
       -DCMAKE_INSTALL_LIBDIR=lib \
+      -DBUILD_TESTS=OFF \
       ..
     ninja -j${CPU_COUNT}
   )
@@ -44,6 +45,7 @@ cmake ${CMAKE_ARGS} \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_PREFIX_PATH=$PREFIX \
     -DCMAKE_INSTALL_LIBDIR=lib \
+    -DBUILD_TESTS=OFF \
     ..
 
 cmake --build . --target install
