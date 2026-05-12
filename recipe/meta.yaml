@@ -26,9 +26,8 @@ requirements:
     - {{ compiler('c') }}
     - cmake
     - ninja-base  # [unix]
-    - libgomp     # [linux]
   host:
-    - libgomp {{ cxx_compiler_version }}      # [linux]
+    - libgomp  # [linux]
     - llvm-openmp {{ cxx_compiler_version }}  # [osx]
   run:
     - libgomp  # [linux]
