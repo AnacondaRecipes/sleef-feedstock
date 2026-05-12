@@ -25,13 +25,11 @@ requirements:
   build:
     - {{ compiler('c') }}
     - cmake
-    - ninja-base        # [unix]
-    - libgomp      # [linux]
-    - patch     # [not win]
-    - m2-patch  # [win]
+    - ninja-base  # [unix]
+    - libgomp     # [linux]
   host:
-    - libgomp 11.2.0  # [linux]
-    - llvm-openmp 14.0.6  # [osx]
+    - libgomp {{ cxx_compiler_version }}      # [linux]
+    - llvm-openmp {{ cxx_compiler_version }}  # [osx]
   run:
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
