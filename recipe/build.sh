@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if [[ "$openmp_impl" == "libgomp" || "$openmp_impl" == "llvm-openmp" || "$openmp_impl" == "intel-openmp" ]]; then
+    SLEEF_ENABLE_OPENMP=ON
+else
+    SLEEF_ENABLE_OPENMP=OFF
+fi
+
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
   (
     mkdir -p native-build
@@ -28,6 +34,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
       -DSLEEF_BUILD_TESTS=OFF \
       -DSLEEF_ENABLE_TESTER4=OFF \
       -DSLEEF_ENABLE_TLFLOAT=OFF \
+      -DSLEEF_ENABLE_OPENMP=${SLEEF_ENABLE_OPENMP} \
       ..
     ninja -j${CPU_COUNT}
   )
@@ -60,6 +67,7 @@ cmake ${CMAKE_ARGS} \
     -DSLEEF_BUILD_TESTS=OFF \
     -DSLEEF_ENABLE_TESTER4=OFF \
     -DSLEEF_ENABLE_TLFLOAT=OFF \
+    -DSLEEF_ENABLE_OPENMP=${SLEEF_ENABLE_OPENMP} \
     ..
 
 cmake --build . --target install
