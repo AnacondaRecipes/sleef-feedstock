@@ -11,7 +11,7 @@ source:
 
 build:
   number: 1
-  string: {{ openmp_impl }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
+  string: {{ openmp_impl | replace("-", "_") }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   run_exports:
     # SO name changes at minor rev bumps.
     - {{ pin_subpackage('sleef', max_pin='x') }}
