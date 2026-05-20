@@ -30,7 +30,7 @@ requirements:
     - intel-openmp                            # [openmp_impl == "intel-openmp"]
     - llvm-openmp {{ cxx_compiler_version }}  # [openmp_impl == "llvm-openmp"]
   run:
-    - libgomp      # [openmp_impl == "libgomp"]
+    - libgomp       # [openmp_impl == "libgomp"]
     - intel-openmp  # [openmp_impl == "intel-openmp"]
     - llvm-openmp   # [openmp_impl == "llvm-openmp"]
 
