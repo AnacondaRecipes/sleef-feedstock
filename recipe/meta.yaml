@@ -1,21 +1,16 @@
-{% set version = "3.5.1" %}
+{% set version = "3.9.0" %}
+{% set name = "sleef" %}
 
 package:
-  name: sleef
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://github.com/shibatch/sleef/archive/{{ version }}.tar.gz
-  sha256: 415ee9b1bcc5816989d3d4d92afd0cd3f9ee89cbd5a33eb008e69751e40438ab
-  patches:
-    - patches/install_dll.diff  # [win]
-    - patches/353.patch
-    - patches/355.patch
-    - patches/358.patch
-    - patches/359.patch
+  url: https://github.com/shibatch/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: af60856abac08a3b5e72a8d156dd71fec1f7ac23de8ee67793f45f9edcdf0908
 
 build:
-  number: 3
+  number: 0
   run_exports:
     # SO name changes at minor rev bumps.
     - {{ pin_subpackage('sleef', max_pin='x') }}
@@ -23,11 +18,14 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - cmake
+    - git
     - ninja-base  # [unix]
   host:
-    - libgomp  # [linux]
+    - libgomp 15.2.0 # [linux]
     - llvm-openmp {{ cxx_compiler_version }}  # [osx]
   run:
     - libgomp  # [linux]
@@ -35,11 +33,11 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/include/sleef.h                          # [unix]
+    - test -f $PREFIX/include/sleef.h  # [unix]
     - if not exist %PREFIX%\\Library\\include\\sleef.h exit 1  # [win]
 
 about:
-  home: https://sleef.org/
+  home: https://sleef.org
   license: BSL-1.0
   license_file: LICENSE.txt
   license_family: BSD
@@ -50,7 +48,7 @@ about:
     point math functions. It can utilize SIMD instructions that are available
     on modern processors.
   dev_url: https://github.com/shibatch/sleef
-  doc_url: https://sleef.org/
+  doc_url: https://sleef.org
 
 extra:
   recipe-maintainers:
