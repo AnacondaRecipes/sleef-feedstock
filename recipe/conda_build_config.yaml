@@ -1,0 +1,4 @@
+openmp_impl:
+  - no-openmp
+  - libgomp  #[linux and blas_impl != "mkl"]
+  - llvm-openmp  #[osx]
