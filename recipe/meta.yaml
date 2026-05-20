@@ -25,7 +25,7 @@ requirements:
     - git
     - ninja-base  # [unix]
   host:
-    - libgomp  # [linux]
+    - libgomp 15.2.0 # [linux]
     - llvm-openmp {{ cxx_compiler_version }}  # [osx]
   run:
     - libgomp  # [linux]
